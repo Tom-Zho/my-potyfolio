@@ -3,131 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saitama | Hero Portfolio</title>
+  <title>Tom | QSI Student Portfolio</title>
   <style>
-    /* ===== MODERN SAITAMA PORTFOLIO STYLES ===== */
     :root {
-      --bg: #f9f9fb;
-      --text: #2d2b3a;
-      --accent: #ff4757;
-      --card-bg: #ffffff;
+      --accent: #f34d00;
+      --bg-color: #0061fe;
+      --bg: linear-gradient(135deg, #0735fe 0%, #00eeff 100%);
+      --text: #000000f9;
+      --card-bg: #38d9f2;
       --shadow: rgba(0, 0, 0, 0.1);
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
+      background-color: var(--bg-color);
+      background-image: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
     }
-
     header {
       text-align: center;
       padding: 2rem 1rem;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      background: linear-gradient(135deg, #05dbfc 0%, #1bf529bf 100%);
       color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3.5rem;
+      color: white;
       margin-bottom: 0.3rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      text-shadow: 2px 2px 4px rgb(0, 0, 0);
     }
-
+    @media (min-width: 600px) {
+      header h1 {
+        font-size: 5rem;
+      }
+    }
     header p {
       font-size: 1.2rem;
       opacity: 0.9;
     }
-
     main {
       padding: 2rem 1rem;
       max-width: 900px;
       margin: 0 auto;
     }
-
     .hero-card {
       display: flex;
       flex-direction: column;
       background: var(--card-bg);
       border-radius: 16px;
       box-shadow: 0 6px 20px var(--shadow);
-      overflow: hidden;
-      gap: 1.5rem;
-      padding: 1.5rem;
-    }
-
-    @media (min-width: 600px) {
-      .hero-card {
-        flex-direction: row;
-      }
-    }
-
-    /* ===== IMAGE CAROUSEL ===== */
-    .image-carousel {
-      position: relative;
-      width: 100%;
-      max-width: 300px;
+      padding: 2rem;
+      gap: 2rem;
+      max-width: 700px;
       margin: 0 auto;
     }
-
-    .image-carousel img {
+    @media (min-width: 768px) {
+      .hero-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .profile-img {
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    .profile-img img {
       width: 100%;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 12px var(--shadow);
       display: block;
+      object-fit: cover;
     }
-
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .carousel-nav button {
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-bottom: 8px solid #ccc;
-      background: none;
-      cursor: pointer;
-      transition: border-bottom-color 0.3s ease;
-    }
-
-    .carousel-nav button.active {
-      border-bottom-color: var(--accent);
-    }
-
-    /* ===== INFO SECTION ===== */
     .info {
       flex: 1;
     }
-
     .info h2,
     .info h3 {
       margin: 1.2rem 0 0.6rem;
       color: var(--text);
     }
-
+    .info h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    @media (max-width: 767px) {
+      .info h2 {
+        text-align: center;
+      }
+    }
+    .info p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
     .info ul {
       list-style: none;
       padding-left: 0;
+      margin-bottom: 1.5rem;
     }
-
     .info ul li {
       padding: 0.4rem 0;
       padding-left: 1.5rem;
       position: relative;
+      font-size: 1.05rem;
     }
-
     .info ul li::before {
       content: "•";
       color: var(--accent);
@@ -136,26 +123,33 @@
       left: 0;
       top: -0.2rem;
     }
-
     #contact-btn {
-      margin-top: 1.2rem;
-      padding: 0.6rem 1.4rem;
+      padding: 0.8rem 1.6rem;
       background-color: var(--accent);
       color: white;
       border: none;
       border-radius: 30px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 2px 6px rgba(243, 77, 0, 0.2);
     }
-
+    @media (min-width: 768px) {
+      #contact-btn {
+        margin: 0;
+      }
+    }
     #contact-btn:hover {
       background-color: #e03a47;
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+      box-shadow: 0 4px 10px rgba(243, 77, 0, 0.3);
     }
-
-    /* ===== MODAL ===== */
+    #contact-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(243, 77, 0, 0.2);
+    }
     .modal {
       display: none;
       position: fixed;
@@ -168,7 +162,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .modal-content {
       background: white;
       padding: 2rem;
@@ -179,12 +172,10 @@
       position: relative;
       animation: popIn 0.4s ease;
     }
-
     @keyframes popIn {
       from { transform: scale(0.8); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-
     #close-modal {
       position: absolute;
       top: 1rem;
@@ -192,65 +183,96 @@
       font-size: 1.8rem;
       cursor: pointer;
       color: #888;
+      transition: color 0.3s ease;
     }
-
     #close-modal:hover {
       color: var(--accent);
     }
-
-    /* ===== FOOTER ===== */
+    .modal-content h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    .modal-content p {
+      margin: 0.8rem 0;
+      font-size: 1.1rem;
+    }
     footer {
       text-align: center;
       padding: 1.5rem;
-      color: #777;
+      color: white;
       font-size: 0.9rem;
-      border-top: 1px solid #eee;
       margin-top: 2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Saitama</h1>
-    <p>The Caped Baldy — Hero for Fun</p>
+    <h1>Tom</h1>
+    <p>The QSI Student</p>
   </header>
 
   <main>
     <div class="hero-card">
-      <div class="image-carousel">
-        <img id="hero-img" alt="Saitama from One Punch Man" />
-        <div class="carousel-nav" id="carousel-nav"></div>
-      </div>
+     <div class="profile-img">
+  <img src="https://tse1.mm.bing.net/th/id/OIP.uWlzk21bI82jWLeAEYNIZgHaNC?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tom the Cat" />
+</div>
       <div class="info">
         <h2>About Me</h2>
-        <p>I train every day: 100 push-ups, 100 sit-ups, 100 squats, and a 10km run. And I always end with... <strong>one punch!</strong></p>
+        <p>I study every day: German, Math, English, Biology, Geography. And I always play... <strong>Video Games</strong> after!</p>
 
-        <h3>My Powers</h3>
+        <h3>My Strengths</h3>
         <ul>
-          <li>💪 Infinite Strength</li>
-          <li>⚡ Speed & Reflexes</li>
-          <li>😎 Baldness (Intimidation Level: MAX)</li>
-          <li>🛒 Grocery Sale Radar</li>
+          <li>🧠 Intelligence</li>
+          <li>❤️ Kindness and Politeness</li>
+          <li>😊 Independent Endeavor</li>
+          <li>🎨 Aesthetic Appreciation</li>
         </ul>
 
-        <button id="contact-btn">📧 Contact Me</button>
+        <button id="contact-btn" title="Click to view contact info">📧 Contact Me</button>
       </div>
     </div>
   </main>
 
-  <!-- Modal Dialog -->
   <div id="contact-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
       <h2>Get in Touch</h2>
-      <p>📧 Email: saitama@hero.org</p>
-      <p>📱 Hero Hotline: +81-XXX-XXXX</p>
-      <p>📍 Based in: City Z, Japan</p>
+      <p>📧 Email: 49900@shenzhen.qsi.org</p>
+      <p>📱 Phone number: +86 138XXXX1234</p>
+      <p>📍 Based in: Shenzhen, China</p>
     </div>
   </div>
 
   <footer>
     <p>Made with ❤️ in WWW Bootcamp • 2025</p>
   </footer>
+
+  <script>
+    const contactBtn = document.getElementById('contact-btn');
+    const contactModal = document.getElementById('contact-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    contactBtn.addEventListener('click', () => {
+      contactModal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      contactModal.style.display = 'none';
+    });
+
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactModal.style.display === 'flex') {
+        contactModal.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
